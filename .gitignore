@@ -1,0 +1,10 @@
+*.tar.gz
+*.dmg
+*.exe
+*.cpp.orig
+*.cpp.bak
+*.h.bak
+*.h.orig
+*.diff
+FMOD*
+
