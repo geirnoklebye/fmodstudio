@@ -60,7 +60,8 @@
           </map>
           <key>manifest</key>
           <array>
-            <string>lib/release/libfmodstudio.dylib</string>
+            <string>lib/release/libfmod.dylib</string>
+            <string>lib/debug/libfmodL.dylib</string>
           </array>
           <key>name</key>
           <string>darwin</string>

@@ -112,13 +112,11 @@ pushd "$FMOD_SOURCE_DIR"
 
         "darwin")
             cp "api/core/lib/libfmod.dylib" "$stage_release"
-            cp "api/studio/lib/libfmodstudio.dylib" "$stage_release"
+            cp "api/core/lib/libfmodL.dylib" "$stage_debug"
             pushd "$stage_debug"
-              fix_dylib_id libfmodstudioL.dylib
               fix_dylib_id libfmodL.dylib
             popd
             pushd "$stage_release"
-              fix_dylib_id libfmodstudio.dylib
               fix_dylib_id libfmod.dylib
             popd
         ;;
