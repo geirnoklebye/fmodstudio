@@ -43,30 +43,7 @@ case "$AUTOBUILD_PLATFORM" in
     ;;
 esac
 
-case "$AUTOBUILD_PLATFORM" in
-    windows*)
-        # We can't run the NSIS installer as admin in TC
-        # so we do this part manually and put the whole lot
-        # into the repo instead.
-        #
-        bash_install_dir="$(pwd)/$FMOD_ROOT_NAME$FMOD_VERSION$FMOD_PLATFORM"
-        mkdir -p $bash_install_dir
-        win_install_dir=`cygpath -w "$bash_install_dir"`
-        #
-        # This will invoke the UAC dialog to confirm permission before
-        # proceeding.  You can run the build on a 'modified' system with
-        # permissions granted to the build account or you might be able
-        # to get to the dialog using remote desktop.  Either way, manual
-        # preparation for this is required.
-        #
-        chmod +x "$FMOD_ARCHIVE"
-        cmd.exe /c "$FMOD_ARCHIVE /S /D=$win_install_dir"
-        if [ ! -d "$win_install_dir" ]; then
-            echo "Please run $FMOD_ARCHIVE as administrator and install to  $win_install_dir"
-            exit 1
-        fi
-    ;;
-esac
+
 
 stage="$(pwd)/stage"
 stage_release="$stage/lib/release"
