@@ -26,7 +26,7 @@ set -x
 # Note: fmod studio api is provided in 3 flavors (one per platform) of precompiled binaries. We do not have access to source code.
 FMOD_ROOT_NAME="$(pwd)/"
 FMOD_VERSION="20010"
-FMOD_VERSION_PRETTY="2.01.10"
+FMOD_VERSION_PRETTY="2.02.03"
 
 case "$AUTOBUILD_PLATFORM" in
     windows*)
