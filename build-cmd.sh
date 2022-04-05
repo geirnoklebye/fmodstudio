@@ -26,7 +26,7 @@ set -x
 # Note: fmod studio api is provided in 3 flavors (one per platform) of precompiled binaries. We do not have access to source code.
 FMOD_ROOT_NAME="$(pwd)/"
 FMOD_VERSION="20010"
-FMOD_VERSION_PRETTY="2.02.05"
+FMOD_VERSION_PRETTY="2.02.06"
 
 case "$AUTOBUILD_PLATFORM" in
     windows*)
@@ -63,7 +63,7 @@ echo "${FMOD_VERSION_PRETTY}" > "${stage}/VERSION.txt"
 COPYFLAGS=""
 pushd "$FMOD_SOURCE_DIR"
     case "$AUTOBUILD_PLATFORM" in
-        "windows")
+        "windows32")
         COPYFLAGS="-dR --preserve=mode,timestamps"
             cp $COPYFLAGS "api/core/lib/x86/fmodL_vc.lib" "$stage_debug"
             cp $COPYFLAGS "api/core/lib/x86/fmod_vc.lib" "$stage_release"
@@ -75,7 +75,7 @@ pushd "$FMOD_SOURCE_DIR"
             cp $COPYFLAGS "api/studio/lib/x86/fmodstudio.dll" "$stage_release"
         ;;
 
-        "windows64")
+        "windows")
         COPYFLAGS="-dR --preserve=mode,timestamps"
             cp $COPYFLAGS "api/core/lib/x64/fmodL_vc.lib" "$stage_debug"
             cp $COPYFLAGS "api/core/lib/x64/fmod_vc.lib" "$stage_release"
